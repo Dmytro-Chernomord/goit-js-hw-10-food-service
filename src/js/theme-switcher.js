@@ -12,7 +12,7 @@ refs.button.addEventListener('click', themeChange);
 getStorage();
 function getStorage() {
   const themeCheck = localStorage.getItem('Theme:');
-  if (themeCheck === null) {
+  if (themeCheck === null || themeCheck === 'light-theme') {
     localStorage.setItem('Theme:', Theme.LIGHT);
     lightTheme();
   } else if (themeCheck === 'dark-theme') {
@@ -22,6 +22,7 @@ function getStorage() {
 
 function darkTheme() {
   refs.body.classList.add('dark-theme');
+  refs.body.classList.remove('light-theme');
   refs.button.checked = true;
 }
 
