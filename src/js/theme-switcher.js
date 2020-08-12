@@ -34,9 +34,17 @@ function lightTheme() {
 function themeChange() {
   if (refs.button.checked) {
     darkTheme();
-    localStorage.setItem('Theme:', Theme.DARK);
+    setLocalStorageDark();
   } else {
     lightTheme();
-    localStorage.setItem('Theme:', Theme.LIGHT);
+    setLocalStorageLight();
   }
+}
+
+function setLocalStorageLight() {
+  localStorage.setItem('Theme:', Theme.LIGHT);
+}
+
+function setLocalStorageDark() {
+  localStorage.setItem('Theme:', Theme.DARK);
 }
