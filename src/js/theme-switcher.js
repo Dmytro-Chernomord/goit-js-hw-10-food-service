@@ -13,7 +13,7 @@ getStorage();
 function getStorage() {
   const themeCheck = localStorage.getItem('Theme:');
   if (themeCheck === null || themeCheck === 'light-theme') {
-    localStorage.setItem('Theme:', Theme.LIGHT);
+    setLocalStorage(Theme.LIGHT);
     lightTheme();
   } else if (themeCheck === 'dark-theme') {
     darkTheme();
@@ -34,17 +34,13 @@ function lightTheme() {
 function themeChange() {
   if (refs.button.checked) {
     darkTheme();
-    setLocalStorageDark();
+    setLocalStorage(Theme.DARK);
   } else {
     lightTheme();
-    setLocalStorageLight();
+    setLocalStorage(Theme.LIGHT);
   }
 }
 
-function setLocalStorageLight() {
-  localStorage.setItem('Theme:', Theme.LIGHT);
-}
-
-function setLocalStorageDark() {
-  localStorage.setItem('Theme:', Theme.DARK);
+function setLocalStorage(info) {
+  localStorage.setItem('Theme:', info);
 }
